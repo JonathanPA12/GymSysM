@@ -1,0 +1,47 @@
+﻿@model IEnumerable<GymSysM.Models.Matricula>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Matriculas</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Fecha y Hora
+            </th>
+            <th>
+                Clase
+            </th>
+            <th>
+                Cliente
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaHora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdClaseNavigation.IdActividadNavigation.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdClienteNavigation.Dni)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdMatricula">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdMatricula">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdMatricula">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

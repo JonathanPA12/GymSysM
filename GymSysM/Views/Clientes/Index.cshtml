@@ -1,0 +1,115 @@
+﻿@model IEnumerable<GymSysM.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Clientes</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Dni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellidos)
+            </th>
+            <th>
+                Fecha de Nacimiento
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <!--
+    <th>
+        @Html.DisplayNameFor(model => model.Direccion)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Correo)
+    </th>
+        -->
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                Fecha de Subscripcion
+            </th>
+            <th>
+                Fecha Renovacion
+            </th>
+            <!--
+    <th>
+        Cantidad de Sesiones Uva Solicitadas
+    </th>
+    <th>
+        Cantidad de Sesiones Uva Disponibles
+    </th>
+        -->
+            <th>
+                Tipo de Subscripcion
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <!--
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+    -->
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaSubscripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaRenovacion)
+            </td>
+            <!--
+            <td>
+                @Html.DisplayFor(modelItem => item.CantSesionesUva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SesionesUVAdisp)
+            </td>
+    -->
+            <td>
+                @Html.DisplayFor(modelItem => item.IdSubscripcionNavigation.Nombre)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdCliente">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdCliente">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdCliente">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

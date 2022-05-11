@@ -1,0 +1,36 @@
+﻿@model GymSysM.Models.Matricula
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Matricula</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Fecha y Hora
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaHora)
+        </dd>
+        <dt class = "col-sm-2">
+            Clase
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdClaseNavigation.IdActividadNavigation.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            Cliente
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdClienteNavigation.Apellidos)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdMatricula">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
